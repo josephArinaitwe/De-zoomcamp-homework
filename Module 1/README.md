@@ -10,7 +10,8 @@ Run docker with the `python:3.13` image. Use an entrypoint `bash` to interact wi
 
 What's the version of `pip` in the image?
 
- ✅  25.3
+ ✅ 25.3
+ 
 - 24.3.1
 - 24.2.1
 - 23.3.1
@@ -56,7 +57,8 @@ volumes:
 - localhost:5432
 - db:5433
 - postgres:5432
-✅ db:5432
+- ✅ db:5432
+
 
 If multiple answers are correct, select any 
 
@@ -88,7 +90,7 @@ WHERE trip_distance <= 1
 ```
 
 - 7,853
- ✅ 8,007
+-✅ 8,007
 - 8,254
 - 8,421
 
@@ -107,7 +109,7 @@ ORDER BY trip_distance DESC
 
 ```
 
- ✅2025-11-14
+- ✅2025-11-14
 - 2025-11-20
 - 2025-11-23
 - 2025-11-25
