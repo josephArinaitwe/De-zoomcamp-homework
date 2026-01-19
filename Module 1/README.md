@@ -79,8 +79,16 @@ wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_z
 
 For the trips in November 2025 (lpep_pickup_datetime between '2025-11-01' and '2025-12-01', exclusive of the upper bound), how many trips had a `trip_distance` of less than or equal to 1 mile?
 
+```sql
+SELECT COUNT(*) 
+FROM green_taxi_trips
+WHERE trip_distance <= 1
+  AND lpep_pickup_datetime >= '2025-11-01' 
+  AND lpep_pickup_datetime < '2025-12-01';
+```
+
 - 7,853
-- 8,007
+ ✅ 8,007
 - 8,254
 - 8,421
 
@@ -91,7 +99,15 @@ Which was the pick up day with the longest trip distance? Only consider trips wi
 
 Use the pick up time for your calculations.
 
-- 2025-11-14
+```sql
+SELECT lpep_pickup_datetime AS pickup_day, trip_distance
+FROM green_taxi_trips
+WHERE trip_distance < 100
+ORDER BY trip_distance DESC
+
+```
+
+ ✅2025-11-14
 - 2025-11-20
 - 2025-11-23
 - 2025-11-25
