@@ -142,9 +142,25 @@ LIMIT 1;
 For the passengers picked up in the zone named "East Harlem North" in November 2025, which was the drop off zone that had the largest tip?
 
 Note: it's `tip` , not `trip`. We need the name of the zone, not the ID.
-
+```sql
+SELECT 
+    do_tz."Zone" AS dropoff_zone, 
+    MAX(gt.tip_amount) AS largest_tip
+FROM green_taxi_trips gt
+JOIN zones pu_tz
+    ON gt."PULocationID" = pu_tz."LocationID"
+JOIN zones do_tz
+    ON gt."DOLocationID" = do_tz."LocationID"
+WHERE 
+    pu_tz."Zone" = 'East Harlem North' 
+    AND gt.lpep_pickup_datetime >= '2025-11-01 00:00:00' 
+    AND gt.lpep_pickup_datetime < '2025-12-01 00:00:00'
+GROUP BY do_tz."Zone"
+ORDER BY largest_tip DESC
+LIMIT 1;
+```
 - JFK Airport
-- Yorkville West
+- ✅Yorkville West
 - East Harlem North
 - LaGuardia Airport
 
