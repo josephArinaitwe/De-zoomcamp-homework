@@ -119,11 +119,23 @@ ORDER BY trip_distance DESC
 
 Which was the pickup zone with the largest `total_amount` (sum of all trips) on November 18th, 2025?
 
-- East Harlem North
+- ✅East Harlem North
 - East Harlem South
 - Morningside Heights
 - Forest Hills
 
+``` sql
+SELECT 
+    tz."Zone", 
+    SUM(gt.total_amount) AS total_sum
+FROM green_taxi_trips gt
+JOIN zones tz
+    ON gt."PULocationID" = tz."LocationID"
+WHERE CAST(lpep_pickup_datetime AS DATE) = '2025-11-18'
+GROUP BY tz."Zone"
+ORDER BY total_sum DESC
+LIMIT 1;
+```
 
 ## Question 6. Largest tip
 
