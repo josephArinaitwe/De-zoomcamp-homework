@@ -1,5 +1,7 @@
 # Module 1 Homework: Docker & SQL
 
+Joseph Arinaitwe
+
 In this homework I will prepare the environment and practice
 Docker and SQL
 
