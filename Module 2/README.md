@@ -14,22 +14,42 @@ Complete the quiz shown below. It's a set of 6 multiple-choice questions to test
 
 - 24,648,499
 
-ANSWER - SELECT COUNT(*) FROM `zoomcamp.yellow_tripdata` WHERE EXTRACT (YEAR FROM tpep_pickup_datetime) = 2020
+```sql 
+SELECT 
+    COUNT(*) 
+FROM 
+    `zoomcamp.yellow_tripdata` 
+WHERE 
+EXTRACT (YEAR FROM tpep_pickup_datetime) = 2020
+```
 
 4) How many rows are there for the `Green` Taxi data for all CSV files in the year 2020?
 
 - 1,734,051
 
-ANSWER - SELECT COUNT (*) FROM `zoomcamp.yellow_tripdata` WHERE EXTRACT (YEAR FROM lpep_pickup_datetime) = 2020
+```sql 
+SELECT 
+    COUNT (*) 
+FROM 
+    `zoomcamp.yellow_tripdata` 
+WHERE 
+    EXTRACT (YEAR FROM lpep_pickup_datetime) = 2020
+```
 
 5) How many rows are there for the `Yellow` Taxi data for the March 2021 CSV file?
-- 1,428,092
-- 706,911
+
 - 1,925,152
-- 2,561,031
+
+```sql
+SELECT
+     COUNT(*) 
+ FROM
+     yellow_tripdata 
+ WHERE
+     EXTRACT(YEAR FROM tpep_pickup_datetime) = 2021
+     AND EXTRACT(MONTH FROM tpep_pickup_datetime) = 03;
+```
 
 6) How would you configure the timezone to New York in a Schedule trigger?
-- Add a `timezone` property set to `EST` in the `Schedule` trigger configuration  
+
 - Add a `timezone` property set to `America/New_York` in the `Schedule` trigger configuration
-- Add a `timezone` property set to `UTC-5` in the `Schedule` trigger configuration
-- Add a `location` property set to `New_York` in the `Schedule` trigger configuration  
