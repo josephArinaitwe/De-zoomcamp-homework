@@ -56,9 +56,11 @@ SELECT
 
 > Solution: The general solution is as follows:
     ```Yaml
+
     triggers:
     - id: schedule-trigger
         type: io.kestra.core.models.triggers.types.Schedule
         cron: "0 12 * * *"
         timezone: "America/New_York"
+        
     ```
