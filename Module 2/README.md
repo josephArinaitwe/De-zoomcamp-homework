@@ -53,3 +53,12 @@ SELECT
 6) How would you configure the timezone to New York in a Schedule trigger?
 
 - Add a `timezone` property set to `America/New_York` in the `Schedule` trigger configuration
+
+> Solution: The general solution is as follows:
+    ```Yaml
+    triggers:
+    - id: schedule-trigger
+        type: io.kestra.core.models.triggers.types.Schedule
+        cron: "0 12 * * *"
+        timezone: "America/New_York"
+    ```
