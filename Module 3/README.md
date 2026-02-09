@@ -43,7 +43,7 @@ FROM `kestra-sandbox-485613.rides_dataset.external_yellow_tripdata`;
 What is count of records for the 2024 Yellow Taxi Data?
 - 65,623
 - 840,402
-✅ 20,332,093
+-✅ 20,332,093
 - 85,431,289
 
 
