@@ -73,29 +73,37 @@ Write a query to retrieve the PULocationID from the table (not the external tabl
 
 Why are the estimated number of Bytes different?
 - BigQuery is a columnar database, and it only scans the specific columns requested in the query. Querying two columns (PULocationID, DOLocationID) requires 
-reading more data than querying one column (PULocationID), leading to a higher estimated number of bytes processed.
-- BigQuery duplicates data across multiple storage partitions, so selecting two columns instead of one requires scanning the table twice, 
-doubling the estimated bytes processed.
-- BigQuery automatically caches the first queried column, so adding a second column increases processing time but does not affect the estimated bytes scanned.
-- When selecting multiple columns, BigQuery performs an implicit join operation between them, increasing the estimated bytes processed
+reading more data than querying one column (PULocationID), leading to a higher estimated number of bytes processed. ✅
+```sql
+SELECT pu_location_id
+FROM `kestra-sandbox-485613.rides_dataset.yellow_taxi`;
+
+SELECT pu_location_id,do_location_id
+FROM `kestra-sandbox-485613.rides_dataset.yellow_taxi`;
+```
 
 ## Question 4. Counting zero fare trips
 
 How many records have a fare_amount of 0?
-- 128,210
-- 546,578
-- 20,188,016
-- 8,333
 
+ 8,333 ✅
+```sql
+SELECT COUNT(*) 
+FROM `kestra-sandbox-485613.rides_dataset.external_yellow_tripdata`
+WHERE fare_amount = 0;
+```
 ## Question 5. Partitioning and clustering
 
 What is the best strategy to make an optimized table in Big Query if your query will always filter based on tpep_dropoff_datetime and order the results by VendorID (Create a new table with this strategy)
 
-- Partition by tpep_dropoff_datetime and Cluster on VendorID
-- Cluster on by tpep_dropoff_datetime and Cluster on VendorID
-- Cluster on tpep_dropoff_datetime Partition by VendorID
-- Partition by tpep_dropoff_datetime and Partition by VendorID
-
+- Partition by tpep_dropoff_datetime and Cluster on VendorID ✅
+```sql
+CREATE OR REPLACE TABLE `kestra-sandbox-485613.rides_dataset.yellow_tripdata_optimized`
+PARTITION BY DATE(tpep_dropoff_datetime)
+CLUSTER BY vendor_id
+AS
+SELECT * FROM `kestra-sandbox-485613.rides_dataset.external_yellow_tripdata`:
+```
 
 ## Question 6. Partition benefits
 
