@@ -45,18 +45,27 @@ What is count of records for the 2024 Yellow Taxi Data?
 - 840,402
 - 20,332,093 ✅
 - 85,431,289
-
+```sql
+SELECT COUNT(*) FROM `rides_dataset.yellow_taxi`;
+```
 
 ## Question 2. Data read estimation
 
-Write a query to count the distinct number of PULocationIDs for the entire dataset on both the tables.
- 
+Write a query to count the distinct number of s for the entire dataset on both the tables.
+ PULocationID
 What is the **estimated amount** of data that will be read when this query is executed on the External Table and the Table?
+```sql
+-- Query 1: External Table
+SELECT COUNT(DISTINCT pu_location_id)
+FROM `kestra-sandbox-485613.rides_dataset.external_yellow_tripdata`;
 
-- 18.82 MB for the External Table and 47.60 MB for the Materialized Table
-- 0 MB for the External Table and 155.12 MB for the Materialized Table
-- 2.14 GB for the External Table and 0MB for the Materialized Table
-- 0 MB for the External Table and 0MB for the Materialized Table
+-- Query 2: Materialized Table
+SELECT COUNT(DISTINCT pu_location_id)
+FROM `kestra-sandbox-485613.rides_dataset.yellow_taxi`;
+```
+
+- 0 MB for the External Table and 155.12 MB for the Materialized Table ✅
+
 
 ## Question 3. Understanding columnar storage
 
