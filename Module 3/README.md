@@ -117,77 +117,42 @@ Use the materialized table you created earlier in your from clause and note the 
 Choose the answer which most closely matches.
  
 
-- 12.47 MB for non-partitioned table and 326.42 MB for the partitioned table
-- 310.24 MB for non-partitioned table and 26.84 MB for the partitioned table
-- 5.87 MB for non-partitioned table and 0 MB for the partitioned table
-- 310.31 MB for non-partitioned table and 285.64 MB for the partitioned table
+```sql
+
+SELECT DISTINCT vendor_id
+FROM `kestra-sandbox-485613.rides_dataset.yellow_taxi` 
+WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
+
+SELECT DISTINCT vendor_id
+FROM `kestra-sandbox-485613.rides_dataset.yellow_tripdata_optimized` 
+WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
+
+```
+- 310.24 MB for non-partitioned table and 26.84 MB for the partitioned table ✅
+
 
 
 ## Question 7. External table storage
 
 Where is the data stored in the External Table you created?
 
-- Big Query
-- Container Registry
-- GCP Bucket
-- Big Table
+- GCP Bucket ✅
 
 ## Question 8. Clustering best practices
 
 It is best practice in Big Query to always cluster your data:
 - True
-- False
+- False ✅
 
 
 ## Question 9. Understanding table scans
 
 No Points: Write a `SELECT count(*)` query FROM the materialized table you created. How many bytes does it estimate will be read? Why?
-
+```sql
+SELECT count(*)
+FROM `kestra-sandbox-485613.rides_dataset.yellow_taxi
+```
 
 ## Submitting the solutions
 
 Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw3
-
-
-## Learning in Public
-
-We encourage everyone to share what they learned. This is called "learning in public".
-
-Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
-
-### Example post for LinkedIn
-
-```
-🚀 Week 3 of Data Engineering Zoomcamp by @DataTalksClub complete!
-
-Just finished Module 3 - Data Warehousing with BigQuery. Learned how to:
-
-✅ Create external tables from GCS bucket data
-✅ Build materialized tables in BigQuery
-✅ Partition and cluster tables for performance
-✅ Understand columnar storage and query optimization
-✅ Analyze NYC taxi data at scale
-
-Working with 20M+ records and learning how partitioning reduces query costs!
-
-Here's my homework solution: <LINK>
-
-Following along with this amazing free course - who else is learning data engineering?
-
-You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
-```
-
-### Example post for Twitter/X
-
-```
-📊 Module 3 of Data Engineering Zoomcamp done!
-
-- BigQuery & GCS
-- External vs materialized tables
-- Partitioning & clustering
-- Query optimization
-
-My solution: <LINK>
-
-Free course by @DataTalksClub: https://github.com/DataTalksClub/data-engineering-zoomcamp/
-```
