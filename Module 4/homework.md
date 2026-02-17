@@ -29,10 +29,15 @@ models/
 
 If you run `dbt run --select int_trips_unioned`, what models will be built?
 
-- `stg_green_tripdata`, `stg_yellow_tripdata`, and `int_trips_unioned` (upstream dependencies)
-- Any model with upstream and downstream dependencies to `int_trips_unioned`
-- `int_trips_unioned` only
-- `int_trips_unioned`, `int_trips`, and `fct_trips` (downstream dependencies)
+- `int_trips_unioned` only ✅
+
+```sql
+
+SELECT count(*) 
+FROM `dbt_josepharinaitwe.fct_monthly_revenue_per_locations`;
+
+```
+
 
 ---
 
@@ -54,10 +59,9 @@ Your model `fct_trips` has been running successfully for months. A new value `6`
 
 What happens when you run `dbt test --select fct_trips`?
 
-- dbt will skip the test because the model didn't change
-- dbt will fail the test, returning a non-zero exit code
-- dbt will pass the test with a warning about the new value
-- dbt will update the configuration to include the new value
+
+- dbt will fail the test, returning a non-zero exit code ✅
+
 
 ---
 
