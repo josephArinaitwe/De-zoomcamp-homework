@@ -83,11 +83,21 @@ Using the `fct_monthly_zone_revenue` table, find the pickup zone with the **high
 
 Which zone had the highest revenue?
 
-- East Harlem North
-- Morningside Heights
-- East Harlem South
-- Washington Heights South
+- East Harlem North ✅
 
+
+```sql
+SELECT 
+    pickup_zone,
+    SUM(total_amount) AS total_revenue
+FROM dbt_josepharinaitwe.fct_trips
+WHERE 
+    service_type = 'Green' 
+    AND EXTRACT(YEAR FROM pickup_datetime) = 2020
+GROUP BY 1
+ORDER BY total_revenue DESC
+LIMIT 1;
+```
 ---
 
 ### Question 5. Green Taxi Trip Counts (October 2019)
