@@ -48,10 +48,10 @@ cd De-zoomcamp-homework
 
 ## Progress Tracking
 
-- [ ] Week 1: Introduction & Prerequisites
-- [ ] Week 2: Workflow Orchestration
-- [ ] Week 3: Data Warehouse
-- [ ] Week 4: Analytics Engineering
+- [ ✅ ] Week 1: Introduction & Prerequisites
+- [ ✅ ] Week 2: Workflow Orchestration
+- [ ✅ ] Week 3: Data Warehouse
+- [ ✅ ] Week 4: Analytics Engineering
 - [ ] Week 5: Batch Processing
 - [ ] Week 6: Streaming
 - [ ] Final Project
