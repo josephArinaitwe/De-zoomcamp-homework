@@ -48,11 +48,7 @@ variables:
 
 How do you override this when running the pipeline to only process yellow taxis?
 
-- `bruin run --taxi-types yellow`
-- `bruin run --var taxi_types=yellow`
-- `bruin run --var 'taxi_types=["yellow"]'`
-- `bruin run --set taxi_types=["yellow"]`
-
+- `bruin run --var 'taxi_types=["yellow"]'` ✅
 ---
 
 ### Question 4. Running with Dependencies
