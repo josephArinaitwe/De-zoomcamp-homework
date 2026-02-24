@@ -64,21 +64,15 @@ You've modified the `ingestion/trips.py` asset and want to run it plus all downs
 
 You want to ensure the `pickup_datetime` column in your trips table never has NULL values. Which quality check should you add to your asset definition?
 
-- `name: unique`
-- `name: not_null`
-- `name: positive`
-- `name: accepted_values, value: [not_null]`
-
+- `name: not_null` ✅
+  
 ---
 
 ### Question 6. Lineage and Dependencies
 
 After building your pipeline, you want to visualize the dependency graph between assets. Which Bruin command should you use?
 
-- `bruin graph`
-- `bruin dependencies`
-- `bruin lineage`
-- `bruin show`
+- `bruin lineage` ✅
 
 ---
 
