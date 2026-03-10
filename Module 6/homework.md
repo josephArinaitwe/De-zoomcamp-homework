@@ -1,9 +1,5 @@
 # Module 6 Homework
 
-In this homework we'll put what we learned about Spark in practice.
-
-For this homework we will be using the Yellow 2025-11 data from the official website:
-
 ```bash
 wget https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-11.parquet
 ```
@@ -84,53 +80,5 @@ Using the zone lookup data and the Yellow November 2025 data, what is the name o
 - Rikers Island
 - Jamaica Bay
 
-If multiple answers are correct, select any
-
-## Submitting the solutions
-
-- Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw6
-- Deadline: See the website
 
 
-## Learning in Public
-
-We encourage everyone to share what they learned. This is called "learning in public".
-
-Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
-
-### Example post for LinkedIn
-
-```
-🚀 Week 6 of Data Engineering Zoomcamp by @DataTalksClub complete!
-
-Just finished Module 6 - Batch Processing with Spark. Learned how to:
-
-✅ Set up PySpark and create Spark sessions
-✅ Read and process Parquet files at scale
-✅ Repartition data for optimal performance
-✅ Analyze millions of taxi trips with DataFrames
-✅ Use Spark UI for monitoring jobs
-
-Processing 4M+ taxi trips with Spark - distributed computing is powerful! 💪
-
-Here's my homework solution: <LINK>
-
-Following along with this amazing free course - who else is learning data engineering?
-
-You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
-```
-
-### Example post for Twitter/X
-
-```
-⚡ Module 6 of Data Engineering Zoomcamp done!
-
-- Batch processing with Spark 🔥
-- PySpark & DataFrames
-- Parquet file optimization
-- Spark UI on port 4040
-
-My solution: <LINK>
-
-Free course by @DataTalksClub: https://github.com/DataTalksClub/data-engineering-zoomcamp/
-```
