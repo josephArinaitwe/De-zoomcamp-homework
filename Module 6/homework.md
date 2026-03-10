@@ -62,8 +62,16 @@ What is the length of the longest trip in the dataset in hours?
 
 - 22.7
 - 58.2
-- 90.6
+- 90.6 ✅
 - 134.5
+  ```sql
+  df_with_duration = df.withColumn('duration_hrs', 
+    (F.unix_timestamp(df.tpep_dropoff_datetime) - F.unix_timestamp(df.tpep_pickup_datetime)) / 3600
+)
+max_duration = df_with_duration.select(F.max('duration_hrs')).collect()[0][0]
+
+print(f"The longest trip was {max_duration:.2f} hours")
+  ```
 
 
 ## Question 5: User Interface
