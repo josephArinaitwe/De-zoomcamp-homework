@@ -13,6 +13,9 @@ wget https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-11.par
 - Execute spark.version.
 
 What's the output?
+```
+4.1.1
+```
 
 > [!NOTE]
 > To install PySpark follow this [guide](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/06-batch/setup/)
