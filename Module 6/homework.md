@@ -43,9 +43,18 @@ Consider only trips that started on the 15th of November.
 
 - 62,610
 - 102,340
-- 162,604
+- 162,604 ✅
 - 225,768
+```sql
+from pyspark.sql import functions as F
 
+count_nov_15 = df \
+    .withColumn('pickup_date', F.to_date(df.tpep_pickup_datetime)) \
+    .filter(F.col('pickup_date') == '2025-11-15') \
+    .count()
+
+print(f"Number of trips on November 15th: {count_nov_15:,}")
+```
 
 ## Question 4: Longest trip
 
